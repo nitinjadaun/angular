@@ -12,15 +12,16 @@ export class HomeComponent implements OnInit {
         { id: 3, name: 'UP', zip: 160101  },
         { id: 4, name: 'HP', zip: 789456  },
         { id: 5, name: 'MP', zip: 123456  },
-        { id: 6, name: 'Gujrat', zip: 1309431  }
+        { id: 6, name: 'Gujrat', zip: 130943 }
     ];
     inpuValue:number = 2;
     stateName: number = 1;
     inputZip: number = 121102;
 
     stateNameChanged(el) {
-    console.log(this.states[el]);
-        switch( el ){
+    console.log(this.states[el]['zip']);
+    this.inputZip = this.states[el]['zip'];
+        /*switch( el ){
             case 1:
                 this.inputZip = 121102;
                 break;
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
 
             default:
                 this.inputZip = 160101;
-        }
+        }*/
     }
 
     constructor() { }

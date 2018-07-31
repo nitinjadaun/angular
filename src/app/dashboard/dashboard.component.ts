@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
     }
     constructor(private ds: DataService) {
         this.data = this.ds.getData();
-        console.log(this.data);
     }
 
 }
