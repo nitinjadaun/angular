@@ -12,12 +12,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
     email: string;
     password :string;
+    typeOfPassword: boolean = true;
     constructor(private afauth: AngularFireAuth, private db: AngularFirestore,private router: Router ) {
         this.email = '';
         this.password = '';
     }
 
     ngOnInit() {
+    }
+
+    changePasswordToText () {
+        this.typeOfPassword = !this.typeOfPassword;
     }
 
     onSubmit() {
