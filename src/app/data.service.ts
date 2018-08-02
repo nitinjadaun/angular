@@ -15,15 +15,25 @@ export class DataService {
         };
     }
 
-    register( email: string, password: string ) {
+    register( email: string, password: string ): Promise<any>{
         return new Promise( ( resolve , reject ) => {
             this.afauth.auth.createUserWithEmailAndPassword(email, password)
-                .then( data => {
-                    resolve(data);
-                })
-                .catch( err => {
-                    reject(err);
-                });
+            .then( data => {
+                resolve(data);
+            })
+            .catch( err => {
+                reject(err);
             });
-        }
+        });
     }
+     addUser(name:string, uid:string) {
+        const newCoder:any = { 'name': name, 'role': 'subscriber','user_id': uid };
+        this.db.collection('users').add( newCoder )
+        .then( userData => {
+            //resolve(userData);
+            console.log(userData);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+}
