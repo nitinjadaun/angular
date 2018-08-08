@@ -1,43 +1,32 @@
-<form class="mt-4">
+<form class="mt-4" [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="inputEmail4">Name</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Name"  formControlName="name" >
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="inputPassword4">Position</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Position" formControlName="position" >
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="inputAddress">Office</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Office" formControlName="office">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="inputAddress2">Age</label>
+    <input type="number" class="form-control" id="inputAddress2" placeholder="Age" formControlName="age">
   </div>
   <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="inputCity">Value</label>
-      <input type="text" class="form-control" id="date" [ngModel]="inpuValue | hero" name="inputDate">
+      <label for="inputCity">Start Date</label>
+      <input type="date" class="form-control" id="date" [ngModel]="inpuValue | hero" name="inputDate" formControlName="start_date">
     </div>
     <div class="form-group col-md-3">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+      <label for="inputCity">Salary</label>
+      <input type="text" class="form-control" id="inputCity"  placeholder="2000" formControlName="salary">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control" [(ngModel)]="stateName" name="stateName" (ngModelChange)="stateNameChanged($event)">
-        <option selected>Choose...</option>
-        <option *ngFor="let state of states" [value]="state.id" > {{ state.name }}  </option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputzip" value="{{inputZip}}">
-    </div>
-  </div>
+</div>
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -46,5 +35,5 @@
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -36,4 +36,14 @@ export class DataService {
             console.log(err);
         });
     }
+    addInformation (data:any){
+        const newCoder:any = { 'name': data.name, 'position': data.position,'office': data.office,'age':data.age,'start_date': data.start_date,'salary':data.salary };
+        this.db.collection('informations').add( newCoder )
+        .then( userData => {
+            //resolve(userData);
+            console.log(userData);
+        }).catch(err => {
+            console.log(err);
+        });
+    }
 }

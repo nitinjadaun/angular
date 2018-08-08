@@ -1,23 +1,45 @@
-<div class="container">
-	<div class="row">
-		<h2><strong>Login</strong> </h2><br/>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<!-- Start form -->
-			<form (ngSubmit)="onSubmit()">
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)] ='email' >
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<form class="login100-form validate-form" (ngSubmit)="onSubmit()">
+				<span class="login100-form-title p-b-26">
+					Welcome
+				</span>
+				<span class="login100-form-title p-b-48">
+					<i class="zmdi zmdi-font"></i>
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+					<input class="input100" [ngClass]="{ 'has-val' : has_email_value }" type="text" name="email" [(ngModel)] ='email' (blur)="changeEmailValue()">
+					<span class="focus-input100 " data-placeholder="Email" ></span>
 				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<input type="{{ typeOfPassword ? 'password' : 'text'}}" class="form-control" name="password" id="password" placeholder="Password" [(ngModel)] ='password' name="password">
+
+				<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<span class="btn-show-pass">
+						<!-- <i class="zmdi zmdi-eye" (click)="changePasswordToText()"></i> -->
+						<i class="fa fa-eye" (click)="changePasswordToText()"></i>
+					</span>
+					<input class="input100 {{ has_pass_value ? 'has-val' : ''}}" type="{{ typeOfPassword ? 'password' : 'text'}}" [(ngModel)] ='password' name="password" (blur)="changePasswordValue()">
+					<span class="focus-input100" data-placeholder="Password"></span>
 				</div>
-				<div class="form-check ">
-					<button class="btn btn-info mr-2" type="button" name="showpassword" (click)="changePasswordToText()" id="showpassword" value="Show Password">Show password</button>
-					<button type="submit" class="btn btn-primary">Submit</button>
+
+				<div class="container-login100-form-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
 				</div>
-				<div class="pull-right">
-					 <button class="btn btn-primary active mt-3" type="button" routerLink="/register">Register Now!</button>
+
+				<div class="text-center p-t-115">
+					<span class="txt1">
+						Don’t have an account?
+					</span>
+
+					<a class="txt2" routerLink="/register">
+						Sign Up
+					</a>
 				</div>
 			</form>
 		</div>

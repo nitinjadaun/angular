@@ -5,12 +5,15 @@ import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { FancyTitleDirective } from './fancy-title.directive';
 import { DataService } from './data.service';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +31,8 @@ import { RegisterComponent } from './register/register.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule
-  ],
-  providers: [DataService],
+],
+  providers: [DataService,AuthGuardService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

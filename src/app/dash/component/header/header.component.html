@@ -1,15 +1,28 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" routerLink="/dash/home" routerLinkActive="active">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/dash/dashboard" routerLinkActive="active">Dashboard</a>
-  </li>
-</ul>
-<div class="row">
 
-    <div id="mySidenav" class="sidenav">
-        <a class="nav-link active" routerLink="/dash/home" routerLinkActive="active" id="about">Home</a>
-        <a class="nav-link" routerLink="/dash/dashboard" routerLinkActive="active" id="blog">Dashboard</a>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="favicon.ico">  {{ title }}!
+            </a>
+        </div>
+        <div class=" navbar-header pull-right">
+            <span (click)="logout()">LogOut</span>
+        </div>
     </div>
-</div>
+</nav>
+<div class="sidenav">
+    <ul class="sidebar navbar-nav" id="sidebar">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/dash/home" routerLinkActive="active">
+                <i class="fa fa-fw fa-chart-area"></i>
+                <i class="far fa-calendar-alt"></i>
+                <span>Home</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link"  routerLink="/dash/dashboard" routerLinkActive="active">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span>Dashboard</span></a>
+                </li>
+            </ul>
+        </div>

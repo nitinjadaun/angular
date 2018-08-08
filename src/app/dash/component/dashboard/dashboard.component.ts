@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../../data.service';
-
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -9,12 +10,17 @@ import { DataService } from './../../../data.service';
 export class DashboardComponent implements OnInit {
     money :number = 2500;
 
-    data:any = '';
-
+    getData:any = '';
+    data : any;
     ngOnInit() {
     }
-    constructor(private ds: DataService) {
-        this.data = this.ds.getData();
+    constructor(private ds: DataService,private db: AngularFirestore) {
+        this.getData = this.ds.getData();
+        this.data = db.collection('informations').valueChanges()
+        .subscribe(
+            data => {this.data = data;
+            }
+        );
     }
 
 }

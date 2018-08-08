@@ -5,14 +5,18 @@ import { DashboardComponent } from './../dash/component/dashboard/dashboard.comp
 import { HomeComponent } from './../dash/component/home/home.component';
 import { DashComponent } from './dash.component';
 import { routing } from './dash-routing.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HeroPipe } from './pipes/hero.pipe';
+import {DataTableModule} from "angular-6-datatable";
+
 
 @NgModule({
   imports: [
     CommonModule,
     routing,
-    FormsModule
+    FormsModule,
+    DataTableModule,
+    ReactiveFormsModule
   ],
   declarations: [DashComponent,
       HeaderComponent,

@@ -3,9 +3,98 @@
 </div>
 <div class="col-md-4">
     <div class="">
-        <span>Firs Name : {{data.key1 | uppercase }} </span>
+        <span>Firs Name : {{getData.key1 | uppercase }} </span>
     </div>
     <div class="">
-        <span>Last Name : {{data.key2 | uppercase }} </span>
+        <span>Last Name : {{getData.key2 | uppercase }} </span>
     </div>
 </div>
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/dash/" >Dash</a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>
+                Data Table Example</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" >
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                                        <i class="icon-sort-by-alphabet"></i>
+                                    </th>
+                                    <th style="width: 50%">
+                                        <mfDefaultSorter by="position">Position</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 50%">
+                                        <mfDefaultSorter by="office">Office</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 10%">
+                                        <mfDefaultSorter by="age">Age</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="start_date">Start date</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="salary">Salary</mfDefaultSorter>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 50%">
+                                        <mfDefaultSorter by="position">Position</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 50%">
+                                        <mfDefaultSorter by="office">Office</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 10%">
+                                        <mfDefaultSorter by="age">Age</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="start_date">Start date</mfDefaultSorter>
+                                    </th>
+                                    <th style="width: 20%">
+                                        <mfDefaultSorter by="salary">Salary</mfDefaultSorter>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6">
+                                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                    </td>
+                                </tr>
+
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let item of mf.data">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.position}}</td>
+                                    <td>{{item.office}}</td>
+                                    <td class="text-right">{{item.age}}</td>
+                                    <td>{{item.start_date }}</td>
+                                    <td>{{item.salary | currency }}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
